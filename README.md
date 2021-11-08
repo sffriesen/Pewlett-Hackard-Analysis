@@ -50,6 +50,7 @@ Number of employees who are mentorship eligible (per mentorship_titles table):
 ![mentorship_titles_table](Resources/mentorship_titles_table.png)
 
 By creating a new query and table comparing the two, we can see the number of employees each mentor would need to mentor to replace the number of employees retiring ("mentees per mentor" column in the following table):
+
 ![mentees_per_mentor_table](Resources/mentees_per_mentor_table.png)
 
 Depending on how many mentees each mentor can handle, it is possible that the roles could be filled, however even the smallest gaps are quite large (ranging from ~30 mentees to ~110 mentees per mentor). There are also no Managers who are eligible for mentorship, which could present another problem.
