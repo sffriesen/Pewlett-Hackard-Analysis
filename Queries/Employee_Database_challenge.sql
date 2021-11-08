@@ -59,5 +59,37 @@ ORDER BY e.emp_no ASC;
 SELECT * FROM mentorship_eligibility;
 
 
+-- Total roles to be filled
+SELECT SUM(count) FROM retiring_titles;
+SELECT COUNT(emp_no) FROM mentorship_eligibility;
+SELECT COUNT(emp_no) FROM unique_titles;
+
+
+-- Retrieve the number of mentorship eligible employees in each title
+SELECT COUNT(title) AS "count", title
+INTO mentorship_titles
+FROM mentorship_eligibility
+GROUP BY title
+ORDER BY count DESC;
+
+SELECT * FROM mentorship_titles;
+
+-- How many employees will each mentor need to mentor to fill the holes
+SELECT rt.title,
+	rt.count AS "retiring count",
+	mt.count AS "mentor count",
+	ROUND((CAST(rt.count AS decimal)) / mt.count, 2) AS "mentees per mentor"
+	--divide rt.count/mt.count
+INTO mentees_per_mentor
+FROM retiring_titles AS rt
+LEFT OUTER JOIN mentorship_titles AS mt
+ON (rt.title = mt.title);
+
+SELECT * FROM mentees_per_mentor;
+
+
+
+
+
 
 
